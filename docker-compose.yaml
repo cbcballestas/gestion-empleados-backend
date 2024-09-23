@@ -1,0 +1,36 @@
+services:
+  db:
+    container_name: db_container
+    image: 'postgres:15.4-alpine'
+    environment:
+      - POSTGRES_DB=${POSTGRESQL_DATABASE}
+      - POSTGRES_PASSWORD=${POSTGRESQL_PASSWORD}
+      - POSTGRES_USER=${POSTGRESQL_USERNAME}
+    ports:
+      - "5432:5432"
+    command: -p 5432
+    networks:
+      - evaluacion
+
+
+  # Java API Rest
+  api:
+    container_name: api_container
+    image: cballestas/evaluacion-api:1.0.0
+    build:
+      context: .
+    ports:
+      - "8081:8081"
+    environment:
+      - POSTGRESQL_HOST=${POSTGRESQL_HOST}
+      - POSTGRESQL_PORT=${POSTGRESQL_PORT}
+      - POSTGRESQL_DATABASE=${POSTGRESQL_DATABASE}
+      - POSTGRESQL_USERNAME=${POSTGRESQL_USERNAME}
+      - POSTGRESQL_PASSWORD=${POSTGRESQL_PASSWORD}
+    depends_on:
+      - db
+    networks:
+      - evaluacion
+networks:
+  evaluacion:
+    driver: bridge

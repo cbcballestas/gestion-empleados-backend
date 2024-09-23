@@ -1,0 +1,43 @@
+server:
+  servlet:
+    context-path: /api/v1
+  port: 8081
+spring:
+  datasource:
+    url: jdbc:postgresql://${POSTGRESQL_HOST:localhost}:${POSTGRESQL_PORT:5433}/${POSTGRESQL_DATABASE:evaluacion_db}
+    username: ${POSTGRESQL_USERNAME:postgres}
+    password: ${POSTGRESQL_PASSWORD:123456}
+    hikari:
+      connection-timeout: 20000
+      maximum-pool-size: 5
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    properties:
+      hibernate:
+        format_sql: true
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+
+cloudinary:
+  cloud-name: dkl9bur7m
+  api_key: 296983794789296
+  api_secret: DGs932S1FdgSR1yEOiStBMpqpEc
+  upload-folder: uploads/
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE
+springdoc:
+  swagger-ui:
+    path: /swagger-ui
+  api-docs:
+    path: /api-docs
+
