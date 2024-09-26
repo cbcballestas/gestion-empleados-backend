@@ -77,7 +77,7 @@ springdoc:
 
 ## Run application
 
-There are several ways to run a Spring Boot application in your local machine. The most common way is executing `main` method in `com.cballestas.evaluacionfinal.EvaluacionFinalApplication` class from your IDE
+There are several ways to run a Spring Boot application in your local machine. The most common way is executing `main` method in `co.com.castor.evaluacion.EvaluacionApplication` class from your IDE
 
 Alternative you can use [Spring Boot Maven plugin](https://docs.spring.io/spring-boot/docs/current/maven-plugin/reference/htmlsingle), just running:
 
