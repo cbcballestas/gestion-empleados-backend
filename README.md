@@ -5,7 +5,7 @@ de base de datos.
 ## Requirements
 - [JDK 17](https://adoptium.net/es/?variant=openjdk17)
 - [Maven 3](https://maven.apache.org/)
-- PostgreSQL
+- PostgreSQL 16
 
 ## Swagger
 Para acceder a la documentación realizada con Swagger, se debe entrar al siguiente endpoint:
